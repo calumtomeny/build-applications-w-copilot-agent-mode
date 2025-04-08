@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import User, Team, Activity, Leaderboard, Workout
 from bson import ObjectId
+from .models import User, Team, Activity, Leaderboard, Workout
 
 class ObjectIdField(serializers.Field):
     def to_representation(self, value):
@@ -34,7 +34,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 
 class LeaderboardSerializer(serializers.ModelSerializer):
     _id = ObjectIdField()
-    user = UserSerializer()  # Expand the user object
+    user = UserSerializer()
 
     class Meta:
         model = Leaderboard
